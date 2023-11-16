@@ -1,4 +1,5 @@
 import sys
+from src.predictors.bimodal_predictor import BimodalPredictor
 from src.predictors.predictor import Predictor
 
 from src.predictors.smith_predictor import SmithPredictor
@@ -22,8 +23,10 @@ def run_bimodal_predictor():
         return
     pc_bits = int(sys.argv[2])
     tracefile = sys.argv[3]
-    # Implement Bimodal Predictor logic here
-    pass
+    bimodal_predictor = BimodalPredictor(pc_bits)
+
+    run_trace(tracefile, bimodal_predictor)
+    print(bimodal_predictor)
 
 
 def run_gshare_predictor():
@@ -62,9 +65,9 @@ def main():
         print("Invalid arguments")
         return
 
-    print('COMMAND')
-    print('./' + ' '.join(sys.argv))
-    print('OUTPUT')
+    print("COMMAND")
+    print("./" + " ".join(sys.argv))
+    print("OUTPUT")
 
     sim_type = sys.argv[1]
     if sim_type == "smith":
