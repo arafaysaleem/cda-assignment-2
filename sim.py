@@ -1,4 +1,5 @@
 import sys
+from src.predictors.gshare_predictor import GsharePredictor
 from src.predictors.bimodal_predictor import BimodalPredictor
 from src.predictors.predictor import Predictor
 
@@ -36,8 +37,10 @@ def run_gshare_predictor():
     pc_bits = int(sys.argv[2])
     global_bhr_bits = int(sys.argv[3])
     tracefile = sys.argv[4]
-    # Implement Gshare Predictor logic here
-    pass
+    gshare_predictor = GsharePredictor(pc_bits, global_bhr_bits)
+
+    run_trace(tracefile, gshare_predictor)
+    print(gshare_predictor)
 
 
 def run_hybrid_predictor():
