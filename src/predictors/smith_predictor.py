@@ -7,7 +7,7 @@ class SmithPredictor(Predictor):
         self.mispredictions = 0
         self.accesses = 0
 
-    def predict(self, address: str, outcome: str) -> None:
+    def run(self, address: str, outcome: str) -> None:
         self.accesses += 1
 
         prediction = self.counter >= (1 << (self.counter_bits - 1))

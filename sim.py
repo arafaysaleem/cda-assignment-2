@@ -1,4 +1,5 @@
 import sys
+from src.predictors.hybrid_predictor import HybridPredictor
 from src.predictors.gshare_predictor import GsharePredictor
 from src.predictors.bimodal_predictor import BimodalPredictor
 from src.predictors.predictor import Predictor
@@ -52,15 +53,19 @@ def run_hybrid_predictor():
     global_bhr_bits = int(sys.argv[4])
     pc_bits_bimodal = int(sys.argv[5])
     tracefile = sys.argv[6]
-    # Implement Hybrid Predictor logic here
-    pass
+    hybrid_predictor = HybridPredictor(
+        pc_bits_chooser, pc_bits_gshare, global_bhr_bits, pc_bits_bimodal
+    )
+
+    run_trace(tracefile, hybrid_predictor)
+    print(hybrid_predictor)
 
 
 def run_trace(tracefile: str, predictor: Predictor):
     with open(tracefile, "r") as f:
         for line in f:
             (address, outcome) = line.strip().split(" ")
-            predictor.predict(address, outcome)
+            predictor.run(address, outcome)
 
 
 def main():
