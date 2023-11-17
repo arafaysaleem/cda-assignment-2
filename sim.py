@@ -76,6 +76,7 @@ def main():
         return
 
     print("COMMAND")
+    sys.argv[0] = sys.argv[0].replace('.py', '')
     print("./" + " ".join(sys.argv))
     print("OUTPUT")
 
