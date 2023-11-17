@@ -18,7 +18,7 @@ def run_smith_predictor() -> None:
     smith_predictor = SmithPredictor(counter_bits)
 
     run_trace(tracefile, smith_predictor)
-    print(smith_predictor)
+    print(smith_predictor, end="")
 
 
 def run_bimodal_predictor():
@@ -30,7 +30,7 @@ def run_bimodal_predictor():
     bimodal_predictor = BimodalPredictor(pc_bits)
 
     run_trace(tracefile, bimodal_predictor)
-    print(bimodal_predictor)
+    print(bimodal_predictor, end="")
 
 
 def run_gshare_predictor():
@@ -43,7 +43,7 @@ def run_gshare_predictor():
     gshare_predictor = GsharePredictor(pc_bits, global_bhr_bits)
 
     run_trace(tracefile, gshare_predictor)
-    print(gshare_predictor)
+    print(gshare_predictor, end="")
 
 
 def run_hybrid_predictor():
@@ -60,7 +60,7 @@ def run_hybrid_predictor():
     )
 
     run_trace(tracefile, hybrid_predictor)
-    print(hybrid_predictor)
+    print(hybrid_predictor, end="")
 
 
 def run_trace(tracefile: str, predictor: Predictor):
