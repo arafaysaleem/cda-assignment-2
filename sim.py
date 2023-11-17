@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 from src.predictors.hybrid_predictor import HybridPredictor
 from src.predictors.gshare_predictor import GsharePredictor
